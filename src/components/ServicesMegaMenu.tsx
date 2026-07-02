@@ -108,7 +108,7 @@ export default function ServicesMegaMenu() {
             initial={{ opacity: 0, y: 15, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="absolute left-1/2 -translate-x-1/2 md:-translate-x-[50%] lg:-translate-x-[55%] top-full mt-0 w-[90vw] max-w-[850px] bg-white rounded-2xl shadow-[0_40px_100px_-20px_rgba(10,35,66,0.2)] border border-gray-100 overflow-hidden z-[100] flex min-h-[420px]"
           >
             {/* Left Sidebar (Tabs) */}

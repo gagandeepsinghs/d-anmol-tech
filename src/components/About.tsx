@@ -122,7 +122,7 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative lg:h-[600px] w-full flex items-center justify-center order-2 mt-12 lg:mt-0"
           >
             <div className="relative w-full max-w-[500px] aspect-[4/5] lg:aspect-auto lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(10,35,66,0.3)] border-8 border-white/80 z-10 group">

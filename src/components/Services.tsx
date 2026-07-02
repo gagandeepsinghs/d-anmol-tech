@@ -145,7 +145,7 @@ export default function Services() {
                    initial={{ opacity: 0, height: 0, marginTop: 0 }}
                    animate={{ opacity: 1, height: "auto", marginTop: 40 }}
                    exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                   transition={{ duration: 0.5, ease: "easeInOut" }}
+                   transition={{ duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
                    className="overflow-hidden"
                  >
                     <div ref={detailsRef} className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-gray-100 scroll-mt-24">
