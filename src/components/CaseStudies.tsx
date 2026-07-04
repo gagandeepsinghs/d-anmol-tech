@@ -98,6 +98,49 @@ const caseStudies = [
     ],
     gradient: "from-pink-500 to-rose-700",
     shadow: "shadow-pink-500/20"
+  },
+  {
+    id: "baniya-vastra",
+    title: "Baniya Vastra E-Commerce",
+    category: "Premium E-Commerce",
+    overview: "Built a luxury, high-fidelity ethnic wear e-commerce platform with dynamic mega-menus, a conversion-focused product detail experience, and seamless aesthetic branding.",
+    features: [
+      "Premium, responsive UI design",
+      "Interactive mega-menu navigation",
+      "High-fidelity product details with zoom",
+      "Dynamic product variation support",
+      "Secure payment processing integration",
+      "Optimized technical descriptions"
+    ],
+    technologies: ["Next.js", "Tailwind CSS"],
+    results: [
+      "Elevated premium brand positioning",
+      "Improved mobile and desktop shopping experience",
+      "Increased user engagement and time on site"
+    ],
+    gradient: "from-[var(--color-navy)] to-amber-900",
+    shadow: "shadow-amber-900/20"
+  },
+  {
+    id: "desi-rasoi",
+    title: "Desi Rasoi Food Platform",
+    category: "Restaurant & Delivery",
+    overview: "Designed and developed a premium restaurant and food delivery platform featuring a dynamic menu, responsive categories, and an authentic UI that brings the taste of home to the digital experience.",
+    features: [
+      "Dynamic digital menu with categories",
+      "Cart and checkout system",
+      "Authentic, appetizing UI/UX design",
+      "Special offers & featured items section",
+      "Mobile-responsive food ordering"
+    ],
+    technologies: ["Next.js", "Tailwind CSS"],
+    results: [
+      "Increased online food orders",
+      "Enhanced digital restaurant presence",
+      "Streamlined customer browsing experience"
+    ],
+    gradient: "from-orange-600 to-red-800",
+    shadow: "shadow-orange-600/20"
   }
 ];
 
@@ -165,7 +208,8 @@ export default function CaseStudies() {
                     src={`/images/projects/${study.id}.png`}
                     alt={study.title}
                     fill
-                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-left-top"
                   />
                 </div>
 

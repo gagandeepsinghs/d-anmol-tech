@@ -61,7 +61,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             link.name === "Services" ? (
               <ServicesMegaMenu key={link.name} />
@@ -86,7 +86,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-[var(--color-navy)] z-50"
+          className="lg:hidden text-[var(--color-navy)] z-50"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -97,7 +97,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: mobileMenuOpen ? 1 : 0, y: mobileMenuOpen ? 0 : -20 }}
           transition={{ duration: 0.3 }}
-          className={`absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl p-6 flex flex-col gap-6 md:hidden ${
+          className={`absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl p-6 flex flex-col gap-6 lg:hidden ${
             mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
           }`}
         >

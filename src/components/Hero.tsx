@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Code, Cpu, Globe, Smartphone } from "lucide-react";
@@ -9,6 +9,20 @@ import BookingModal from "@/components/BookingModal";
 
 export default function Hero() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const heroImages = [
+    "/hero-tech-banner.png",
+    "/hero-tech-2.png",
+    "/hero-tech-3.png"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -24,6 +38,41 @@ export default function Hero() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } },
   };
+
+  const HeroImageNode = (
+    <div className="relative w-full h-[300px] md:h-[450px] lg:h-[500px] max-w-xl mx-auto group">
+      {/* Image Banner */}
+      <motion.div 
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="relative w-full h-full rounded-[24px] overflow-hidden shadow-2xl shadow-[var(--color-navy)]/20 border-4 border-white/50 z-10"
+      >
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={heroImages[currentImage]}
+              alt="Enterprise Digital Solutions"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+              priority={currentImage === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+
+      {/* Decorative elements behind image */}
+      <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-orange) 0%, transparent 70%)' }}></div>
+      <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full z-0 opacity-30 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-navy) 0%, transparent 70%)' }}></div>
+    </div>
+  );
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--color-light-gray)] pt-32 md:pt-20">
@@ -64,6 +113,11 @@ export default function Hero() {
               We engineer enterprise-grade digital solutions. From AI-driven automation to scalable cloud architectures, D Anmol Tech transforms complexity into your competitive advantage.
             </motion.p>
             
+            {/* Mobile/Tablet Image Node */}
+            <motion.div variants={itemVariants} className="block lg:hidden mb-10 w-full relative">
+              {HeroImageNode}
+            </motion.div>
+            
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => setBookingModalOpen(true)}
@@ -97,34 +151,14 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Visual/Interactive Element */}
+          {/* Visual/Interactive Element (Desktop Only) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative lg:h-[600px] flex items-center justify-center hidden lg:flex"
+            className="relative hidden lg:flex items-center justify-center lg:h-[600px] w-full"
           >
-            <div className="relative w-full h-[500px] max-w-xl mx-auto group">
-              {/* Image Banner */}
-              <motion.div 
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative w-full h-full rounded-[24px] overflow-hidden shadow-2xl shadow-[var(--color-navy)]/20 border-4 border-white/50 z-10"
-              >
-                <Image
-                  src="/hero-tech-banner.png"
-                  alt="Enterprise Digital Solutions"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-
-              {/* Decorative elements behind image */}
-              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-orange) 0%, transparent 70%)' }}></div>
-              <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full z-0 opacity-30 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-navy) 0%, transparent 70%)' }}></div>
-            </div>
+            {HeroImageNode}
           </motion.div>
 
         </div>
