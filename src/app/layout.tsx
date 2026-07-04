@@ -15,15 +15,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
   title: {
     default: "D Anmol Tech | Enterprise Digital Solutions",
     template: "%s | D Anmol Tech",
   },
-  description: "Global technology consulting and engineering services. We engineer enterprise-grade digital solutions from AI-driven automation to scalable cloud architectures.",
+  description:
+    "D Anmol Tech — Global technology consulting and engineering services. We engineer enterprise-grade digital solutions from AI-driven automation to scalable cloud architectures and custom software development.",
+  keywords: [
+    "enterprise software development",
+    "AI automation",
+    "web development India",
+    "mobile app development",
+    "custom software",
+    "digital marketing",
+    "IT consulting",
+    "D Anmol Tech",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-snippet": -1 },
+  },
   openGraph: {
     title: "D Anmol Tech | Enterprise Digital Solutions",
-    description: "Global technology consulting and engineering services.",
+    description:
+      "Global technology consulting and engineering services. AI automation, web development, and scalable cloud solutions.",
     url: "/",
     siteName: "D Anmol Tech",
     locale: "en_US",
@@ -32,7 +51,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "D Anmol Tech | Enterprise Digital Solutions",
-    description: "Global technology consulting and engineering services.",
+    description:
+      "Global technology consulting — AI, web, mobile, and cloud solutions.",
   },
   alternates: {
     canonical: "/",

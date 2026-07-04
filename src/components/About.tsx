@@ -3,9 +3,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { 
   CheckCircle2, Target, Lightbulb, ShieldCheck, 
-  Award, Zap, Users, Code, LineChart, Globe, 
+  Zap, Users, Code, LineChart, Globe, 
   Cpu, Rocket, ArrowRight 
 } from "lucide-react";
 
@@ -97,12 +98,12 @@ export default function About() {
               The D Anmol Tech Story
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--color-navy)] mb-6 tracking-tight leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--color-navy)] mb-8 tracking-tight leading-[1.1]">
               Architecting the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-navy)] via-[var(--color-navy)] to-[var(--color-orange)]">Digital Future</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-navy)] via-blue-800 to-[var(--color-orange)]">Digital Future</span>
             </h2>
             
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-medium">
               We are a premier enterprise technology consulting firm bridging the gap between complex business challenges and highly scalable software solutions. We don't just write code; we engineer competitive advantages.
             </p>
 
@@ -138,28 +139,28 @@ export default function About() {
 
             {/* Floating Stats Board */}
             <motion.div 
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-10 -left-6 md:-left-12 glass-dark bg-[var(--color-navy)]/95 backdrop-blur-xl rounded-3xl p-6 shadow-2xl z-30 border border-white/10 w-[320px] md:w-[380px]"
+              transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute -bottom-6 left-0 lg:-left-10 glass-dark bg-[var(--color-navy)]/95 backdrop-blur-xl rounded-2xl p-5 shadow-2xl z-30 border border-white/10 w-[300px] md:w-[340px]"
             >
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-5">
                 <div>
-                  <p className="text-3xl font-black text-white mb-1"><AnimatedCounter value={250} suffix="+" /></p>
-                  <p className="text-xs text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><Code className="w-3 h-3 text-[var(--color-orange)]" /> Projects</p>
+                  <p className="text-2xl font-black text-white mb-0.5"><AnimatedCounter value={250} suffix="+" /></p>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><Code className="w-3 h-3 text-[var(--color-orange)]" /> Projects</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-white mb-1"><AnimatedCounter value={99} suffix="%" /></p>
-                  <p className="text-xs text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><LineChart className="w-3 h-3 text-[var(--color-orange)]" /> Success Rate</p>
+                  <p className="text-2xl font-black text-white mb-0.5"><AnimatedCounter value={99} suffix="%" /></p>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><LineChart className="w-3 h-3 text-[var(--color-orange)]" /> Success Rate</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-white mb-1"><AnimatedCounter value={50} suffix="+" /></p>
-                  <p className="text-xs text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><Cpu className="w-3 h-3 text-[var(--color-orange)]" /> Technologies</p>
+                  <p className="text-2xl font-black text-white mb-0.5"><AnimatedCounter value={50} suffix="+" /></p>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><Cpu className="w-3 h-3 text-[var(--color-orange)]" /> Technologies</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-white mb-1">24/7</p>
-                  <p className="text-xs text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><Globe className="w-3 h-3 text-[var(--color-orange)]" /> Support</p>
+                  <p className="text-2xl font-black text-white mb-0.5">24/7</p>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider flex items-center gap-1"><Globe className="w-3 h-3 text-[var(--color-orange)]" /> Support</p>
                 </div>
               </div>
             </motion.div>
@@ -182,7 +183,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: idx * 0.15, duration: 0.5 }}
-                className="bg-white rounded-3xl p-10 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-2xl hover:border-[var(--color-orange)]/30 transition-all duration-300 group relative overflow-hidden"
+                className="bg-white rounded-3xl p-10 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_-15px_rgba(255,107,0,0.15)] hover:border-[var(--color-orange)]/30 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-orange)]/5 rounded-full blur-2xl group-hover:bg-[var(--color-orange)]/10 transition-colors"></div>
                 
@@ -215,10 +216,10 @@ export default function About() {
               <p className="text-gray-300 mb-8 leading-relaxed">
                 We combine deep industry expertise with state-of-the-art technological capabilities. Our agile delivery model ensures that we don't just meet expectations—we redefine them.
               </p>
-              <button className="bg-[var(--color-orange)] text-white px-8 py-3.5 rounded-xl font-bold flex items-center gap-2 hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20 group">
+              <Link href="#contact" className="inline-flex w-fit bg-[var(--color-orange)] text-white px-8 py-4 rounded-xl font-bold items-center gap-3 hover:bg-orange-600 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30 group">
                 Consult With Experts
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
+              </Link>
             </div>
             
             <div className="lg:col-span-3 grid sm:grid-cols-2 gap-6">

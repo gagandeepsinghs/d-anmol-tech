@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FADE_UP, GRADIENT_TEXT } from "@/lib/design";
 
 const allTechs = [
   { name: "Next.js", color: "#000000" },
@@ -61,17 +62,17 @@ function MarqueeRow() {
     <div className="relative flex overflow-hidden w-full group/marquee">
       <div className="absolute top-0 left-0 w-20 md:w-40 h-full bg-gradient-to-r from-[var(--color-light-gray)] to-transparent z-10 pointer-events-none"></div>
       <div className="absolute top-0 right-0 w-20 md:w-40 h-full bg-gradient-to-l from-[var(--color-light-gray)] to-transparent z-10 pointer-events-none"></div>
-      <div className="flex animate-slide whitespace-nowrap group-hover/marquee:[animation-play-state:paused] will-change-transform">
+      <div className="flex animate-slide whitespace-nowrap group-hover/marquee:[animation-play-state:paused]">
         {items.map((tech, i) => (
-          <div key={i} className="flex-shrink-0 px-2 md:px-3">
+          <div key={i} className="flex-shrink-0 px-2 md:px-3" aria-hidden={i >= allTechs.length}>
             <div
-              className="flex items-center gap-2.5 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white border border-gray-200/80 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-gray-300 transition-all duration-300 cursor-pointer group/pill"
+              className="flex items-center gap-2.5 px-5 py-2.5 md:px-6 md:py-3 rounded-full bg-white border border-gray-200/80 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-md hover:border-gray-300 transition-all duration-200 cursor-default group/pill"
               style={{ "--tech-color": tech.color } as React.CSSProperties}
             >
-              <span className="text-[var(--tech-color)] transition-colors duration-300">
+              <span className="text-[var(--tech-color)] transition-colors duration-200">
                 <TechIcon name={tech.name} />
               </span>
-              <span className="text-sm md:text-[15px] font-bold text-[var(--color-navy)] group-hover/pill:text-[var(--tech-color)] transition-colors duration-300 whitespace-nowrap">
+              <span className="text-sm md:text-[15px] font-bold text-[var(--color-navy)] group-hover/pill:text-[var(--tech-color)] transition-colors duration-200 whitespace-nowrap">
                 {tech.name}
               </span>
             </div>
@@ -87,35 +88,27 @@ export default function Technologies() {
     <section id="technologies" className="py-12 md:py-16 bg-[var(--color-light-gray)] overflow-hidden border-t border-b border-gray-200/50">
       <div className="container mx-auto px-6 md:px-12 mb-8 md:mb-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-orange)]/10 text-[var(--color-orange)] font-bold text-[10px] md:text-xs uppercase tracking-widest mb-3"
-            >
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-orange)] animate-pulse"></span>
+          <motion.div
+            {...FADE_UP}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-orange)]/10 text-[var(--color-orange)] font-bold text-xs uppercase tracking-widest mb-3"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-orange)] animate-pulse" aria-hidden="true" />
             Tech Stack Showcase
-            </motion.div>
+          </motion.div>
 
-            <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3 }}
-            className="text-2xl md:text-3xl font-extrabold text-[var(--color-navy)] tracking-tight"
-            >
+          <motion.h2
+            {...FADE_UP}
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-3xl md:text-4xl font-extrabold text-[var(--color-navy)] tracking-tight leading-[1.1]"
+          >
             Powered By{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-orange)] to-orange-400">
-                Modern Technologies
-            </span>
-            </motion.h2>
+            <span className={GRADIENT_TEXT}>Modern Technologies</span>
+          </motion.h2>
         </div>
-        
+
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.3 }}
+          {...FADE_UP}
+          transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="text-sm md:text-base text-gray-600 font-medium max-w-md text-center md:text-right"
         >
           We leverage best-in-class frameworks, AI platforms, and cloud infrastructure to deliver scalable enterprise solutions.

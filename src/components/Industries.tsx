@@ -1,143 +1,138 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-import { 
-  HeartPulse, 
-  Landmark, 
-  ShoppingCart, 
-  GraduationCap, 
-  Building2, 
-  Factory, 
-  Truck, 
-  Rocket 
+import { motion } from "framer-motion";
+import {
+  HeartPulse,
+  Landmark,
+  ShoppingCart,
+  GraduationCap,
+  Building2,
+  Factory,
+  Truck,
+  Rocket,
 } from "lucide-react";
+import { FADE_UP, STAGGER_CONTAINER, STAGGER_CHILD, GRADIENT_TEXT } from "@/lib/design";
 
 const industries = [
   {
     name: "Healthcare",
     icon: HeartPulse,
-    description: "Custom healthcare websites, HIPAA-compliant mobile apps, and targeted digital marketing campaigns to connect with patients."
+    description:
+      "Custom healthcare websites, HIPAA-compliant mobile apps, and targeted digital marketing campaigns to connect with patients.",
   },
   {
     name: "Finance & Fintech",
     icon: Landmark,
-    description: "Secure banking web applications, highly scalable trading mobile apps, and trust-building digital marketing strategies."
+    description:
+      "Secure banking web applications, highly scalable trading mobile apps, and trust-building digital marketing strategies.",
   },
   {
     name: "E-Commerce",
     icon: ShoppingCart,
-    description: "High-conversion online stores, custom shopping apps, and aggressive multi-channel digital marketing to drive sales."
+    description:
+      "High-conversion online stores, custom shopping apps, and aggressive multi-channel digital marketing to drive sales.",
   },
   {
     name: "Education",
     icon: GraduationCap,
-    description: "Interactive e-learning websites, student portal mobile apps, and targeted marketing to increase student enrollment."
+    description:
+      "Interactive e-learning websites, student portal mobile apps, and targeted marketing to increase student enrollment.",
   },
   {
     name: "Real Estate",
     icon: Building2,
-    description: "Premium property listing websites, virtual tour apps, and digital marketing strategies for high-quality lead generation."
+    description:
+      "Premium property listing websites, virtual tour apps, and digital marketing strategies for high-quality lead generation.",
   },
   {
     name: "Manufacturing",
     icon: Factory,
-    description: "Corporate B2B websites, operational tracking mobile apps, and digital marketing to secure global manufacturing contracts."
+    description:
+      "Corporate B2B websites, operational tracking mobile apps, and digital marketing to secure global manufacturing contracts.",
   },
   {
     name: "Logistics",
     icon: Truck,
-    description: "Real-time fleet tracking web dashboards, driver delivery apps, and digital marketing solutions for supply chain growth."
+    description:
+      "Real-time fleet tracking web dashboards, driver delivery apps, and digital marketing solutions for supply chain growth.",
   },
   {
     name: "SaaS Startups",
     icon: Rocket,
-    description: "Scalable SaaS product websites, cross-platform mobile apps, and growth-hacking digital marketing to rapidly acquire users."
-  }
+    description:
+      "Scalable SaaS product websites, cross-platform mobile apps, and growth-hacking digital marketing to rapidly acquire users.",
+  },
 ];
 
 export default function Industries() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } }
-  };
-
   return (
-    <section id="industries" className="py-20 md:py-24 bg-white overflow-hidden relative">
-      {/* Background Subtle Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-navy)]/5 rounded-full blur-3xl pointer-events-none transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--color-orange)]/5 rounded-full blur-3xl pointer-events-none transform -translate-x-1/2 translate-y-1/2"></div>
+    <section id="industries" className="py-24 bg-white overflow-hidden relative">
+      {/* Ambient background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[var(--color-navy)]/5 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-[var(--color-orange)]/5 blur-3xl" />
+      </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            {...FADE_UP}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-navy)]/5 text-[var(--color-navy)] font-bold text-xs uppercase tracking-widest mb-6 border border-[var(--color-navy)]/10"
           >
             Global Reach
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-[var(--color-navy)] mb-6 tracking-tight"
+            {...FADE_UP}
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl md:text-5xl font-extrabold text-[var(--color-navy)] mb-8 tracking-tight leading-[1.1]"
           >
-            Industries We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-orange)] to-orange-400">Serve</span>
+            Industries We <span className={GRADIENT_TEXT}>Serve</span>
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.2 }}
-            className="text-base md:text-lg text-gray-600 font-medium leading-relaxed"
+            {...FADE_UP}
+            transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed"
           >
-            We deliver domain-specific solutions, empowering organizations across diverse sectors with premium website development, powerful mobile apps, and data-driven digital marketing strategies.
+            We deliver domain-specific solutions, empowering organizations across
+            diverse sectors with premium website development, powerful mobile apps,
+            and data-driven digital marketing strategies.
           </motion.p>
         </div>
 
+        {/* Grid */}
         <motion.div
-          variants={containerVariants}
+          variants={STAGGER_CONTAINER}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {industries.map((industry, index) => (
+          {industries.map((industry) => (
             <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="group bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(255,107,0,0.15)] hover:border-[var(--color-orange)]/30 transition-all duration-300 relative overflow-hidden flex flex-col h-full"
+              key={industry.name}
+              variants={STAGGER_CHILD}
+              className="group relative flex flex-col h-full bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(255,107,0,0.12)] hover:border-[var(--color-orange)]/30 hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
             >
-              {/* Subtle hover gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--color-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-              
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-[var(--color-light-gray)] text-[var(--color-navy)] group-hover:bg-[var(--color-orange)] group-hover:text-white transition-colors duration-300 shadow-sm relative z-10">
+              {/* Subtle gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[var(--color-orange)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+
+              <div className="w-13 h-13 w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-[var(--color-light-gray)] text-[var(--color-navy)] group-hover:bg-[var(--color-orange)] group-hover:text-white transition-colors duration-300 shadow-sm relative z-10">
                 <industry.icon className="w-7 h-7" strokeWidth={1.5} />
               </div>
-              
+
               <h3 className="text-xl font-bold text-[var(--color-navy)] mb-3 relative z-10">
                 {industry.name}
               </h3>
-              
-              <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 relative z-10 flex-grow">
+
+              <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-200 relative z-10 flex-grow">
                 {industry.description}
               </p>
-              
-              {/* Orange bar decoration that expands on hover */}
-              <div className="h-1 w-8 bg-gray-200 rounded-full mt-6 group-hover:w-16 group-hover:bg-[var(--color-orange)] transition-all duration-300 relative z-10"></div>
+
+              {/* Expanding bar accent */}
+              <div className="h-[3px] w-8 bg-gray-200 rounded-full mt-6 group-hover:w-14 group-hover:bg-[var(--color-orange)] transition-all duration-400 relative z-10" />
             </motion.div>
           ))}
         </motion.div>

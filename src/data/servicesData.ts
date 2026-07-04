@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 import { 
   Code, Cloud, Briefcase, Server, RefreshCw,
   Globe, Smartphone, Monitor, ShoppingCart, LayoutDashboard, Layers,
@@ -19,7 +20,7 @@ export type ServiceDetail = {
 export type ServiceItem = {
   id: string;
   name: string;
-  icon: any;
+  icon: LucideIcon;
   shortDesc: string;
   detail: ServiceDetail;
 };

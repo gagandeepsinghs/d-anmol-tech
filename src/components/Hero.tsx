@@ -4,18 +4,19 @@ import { useState, useEffect } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code, Cpu, Globe, Smartphone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import BookingModal from "@/components/BookingModal";
+
+/** Static — defined once at module level, not per render */
+const heroImages = [
+  "/hero-tech-banner.png",
+  "/hero-tech-2.png",
+  "/hero-tech-3.png",
+];
 
 export default function Hero() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-
-  const heroImages = [
-    "/hero-tech-banner.png",
-    "/hero-tech-2.png",
-    "/hero-tech-3.png"
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -77,10 +78,10 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--color-light-gray)] pt-32 md:pt-20">
       {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-orange) 0%, transparent 70%)' }}></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full opacity-20 pointer-events-none" style={{ background: 'radial-gradient(circle, var(--color-navy) 0%, transparent 70%)' }}></div>
-        <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] rounded-full opacity-40 pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, transparent 70%)' }}></div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full opacity-30 pointer-events-none blur-3xl mix-blend-multiply" style={{ background: 'radial-gradient(circle, rgba(255,107,0,0.15) 0%, transparent 70%)' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full opacity-30 pointer-events-none blur-3xl mix-blend-multiply" style={{ background: 'radial-gradient(circle, rgba(10,35,66,0.15) 0%, transparent 70%)' }}></div>
+        <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-[1000px] h-[500px] rounded-[100%] opacity-50 pointer-events-none blur-2xl" style={{ background: 'radial-gradient(ellipse, rgba(255,255,255,1) 0%, transparent 70%)' }}></div>
         
         {/* Subtle Logo Watermark */}
         <div className="absolute top-1/2 left-[40%] transform -translate-x-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none z-0">
@@ -98,18 +99,18 @@ export default function Hero() {
             animate="visible"
             className="max-w-3xl"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-1.5 rounded-full bg-[var(--color-navy)]/5 text-[var(--color-navy)] font-bold text-[10px] md:text-xs uppercase tracking-widest mb-6 md:mb-8 border border-[var(--color-navy)]/10 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-[var(--color-orange)] animate-pulse"></span>
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1.5 md:px-5 md:py-2 rounded-full bg-white/60 text-[var(--color-navy)] font-bold text-[10px] md:text-sm uppercase tracking-widest mb-8 border border-white/80 shadow-sm backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-[var(--color-orange)] animate-pulse shadow-[0_0_8px_var(--color-orange)]"></span>
               Global Technology Consulting
             </motion.div>
             
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-[4.5rem] font-extrabold text-[var(--color-navy)] leading-[1.1] mb-6 tracking-tight">
+            <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl lg:text-[5rem] font-extrabold text-[var(--color-navy)] leading-[1.1] mb-8 tracking-tight">
               Empowering the <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-navy)] via-blue-800 to-[var(--color-orange)]">Next Generation</span> <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-navy)] via-blue-700 to-[var(--color-orange)]">Next Generation</span> <br className="hidden md:block" />
               of Global Business.
             </motion.h1>
             
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed font-medium">
+            <motion.p variants={itemVariants} className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed font-medium">
               We engineer enterprise-grade digital solutions. From AI-driven automation to scalable cloud architectures, D Anmol Tech transforms complexity into your competitive advantage.
             </motion.p>
             
@@ -118,17 +119,17 @@ export default function Hero() {
               {HeroImageNode}
             </motion.div>
             
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5">
               <button
                 onClick={() => setBookingModalOpen(true)}
-                className="bg-[var(--color-navy)] text-white px-8 py-4 rounded font-semibold text-center hover:bg-[var(--color-orange)] transition-colors shadow-xl shadow-navy/20 flex items-center justify-center gap-2 group"
+                className="bg-[var(--color-navy)] text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-[var(--color-orange)] hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-navy/20 hover:shadow-orange/30 flex items-center justify-center gap-3 group text-lg"
               >
                 Schedule Consultation
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform duration-300" />
               </button>
               <Link
                 href="#services"
-                className="bg-white text-[var(--color-navy)] border border-gray-200 px-8 py-4 rounded font-semibold text-center hover:bg-gray-50 transition-colors flex items-center justify-center shadow-sm"
+                className="bg-white text-[var(--color-navy)] border-2 border-gray-100 px-8 py-4 rounded-xl font-bold text-center hover:bg-gray-50 hover:border-gray-200 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center shadow-sm text-lg"
               >
                 Explore Services
               </Link>

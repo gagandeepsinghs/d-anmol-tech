@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Globe, Sparkles } from "lucide-react";
-import Image from "next/image";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -264,23 +263,23 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 >
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-sm font-bold text-[var(--color-navy)]">First Name *</label>
-                      <input required type="text" name="First Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50" placeholder="John" />
+                      <label htmlFor="first_name_booking" className="text-sm font-bold text-[var(--color-navy)]">First Name *</label>
+                      <input id="first_name_booking" required type="text" name="First Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50" placeholder="John" />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-sm font-bold text-[var(--color-navy)]">Last Name *</label>
-                      <input required type="text" name="Last Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50" placeholder="Doe" />
+                      <label htmlFor="last_name_booking" className="text-sm font-bold text-[var(--color-navy)]">Last Name *</label>
+                      <input id="last_name_booking" required type="text" name="Last Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50" placeholder="Doe" />
                     </div>
                   </div>
                   
                   <div className="space-y-1.5">
-                    <label className="text-sm font-bold text-[var(--color-navy)]">Email Address *</label>
-                    <input required type="email" name="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50" placeholder="john@company.com" />
+                    <label htmlFor="email_booking" className="text-sm font-bold text-[var(--color-navy)]">Email Address *</label>
+                    <input id="email_booking" required type="email" name="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50" placeholder="john@company.com" />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-sm font-bold text-[var(--color-navy)]">Additional Notes</label>
-                    <textarea rows={3} name="message" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50 resize-none" placeholder="Please share anything that will help prepare for our meeting..."></textarea>
+                    <label htmlFor="notes_booking" className="text-sm font-bold text-[var(--color-navy)]">Additional Notes</label>
+                    <textarea id="notes_booking" rows={3} name="message" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[var(--color-orange)] focus:ring-1 focus:ring-[var(--color-orange)] transition-all bg-gray-50/50 resize-none" placeholder="Please share anything that will help prepare for our meeting..."></textarea>
                   </div>
 
                   <div className="pt-4 flex items-center justify-between gap-4">

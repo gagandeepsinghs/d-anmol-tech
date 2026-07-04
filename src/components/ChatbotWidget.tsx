@@ -221,6 +221,7 @@ export default function ChatbotWidget() {
             exit={{ scale: 0, opacity: 0 }}
             whileHover={{ scale: 1.05 }}
             onClick={handleOpen}
+            aria-label="Open Chatbot"
             className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebd5a] text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-colors duration-300 group"
           >
             <MessageCircle size={32} className="group-hover:animate-pulse" />
@@ -257,6 +258,7 @@ export default function ChatbotWidget() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Close Chatbot"
                 className="text-gray-300 hover:text-white hover:bg-white/10 p-1.5 rounded-full transition-colors"
               >
                 <X size={20} />
@@ -321,6 +323,7 @@ export default function ChatbotWidget() {
               >
                 <input
                   type="text"
+                  aria-label="Chat message input"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
@@ -328,6 +331,7 @@ export default function ChatbotWidget() {
                 />
                 <button
                   type="submit"
+                  aria-label="Send Message"
                   disabled={!inputValue.trim()}
                   className="bg-[var(--color-navy)] text-white p-3 rounded-full hover:bg-[var(--color-orange)] disabled:opacity-50 disabled:hover:bg-[var(--color-navy)] transition-colors shadow-md flex-shrink-0"
                 >

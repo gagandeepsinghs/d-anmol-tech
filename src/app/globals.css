@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #0A2342;
-  --color-navy: #0A2342;
-  --color-orange: #FF6B00;
-  --color-light-gray: #F8FAFC;
+  --background: #ffffff;
+  --foreground: #0a2342;
+  --color-navy: #0a2342;
+  --color-orange: #ff6b00;
+  --color-light-gray: #f8fafc;
 }
 
 @theme inline {
@@ -18,43 +18,78 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ── Global resets ─────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  /* Prevents layout shift from scrollbar appearing/disappearing */
+  scrollbar-gutter: stable;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  /* Improves text rendering on macOS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Utility: Glass morphism ───────────────────────────── */
 .glass {
   background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .glass-dark {
-  background: rgba(10, 35, 66, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 35, 66, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* ── Marquee animation ─────────────────────────────────── */
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .animate-slide {
-  animation: slide 40s linear infinite;
+  animation: marquee-slide 40s linear infinite;
+  will-change: transform;
 }
 
-.animate-slide:hover {
-  animation-play-state: paused;
+/* Respects user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
-@keyframes slide-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+/* ── Focus-visible ring for keyboard nav ───────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
 }
 
-.animate-slide-reverse {
-  animation: slide-reverse 45s linear infinite;
+/* Remove default focus ring (replaced by :focus-visible) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Selection color ───────────────────────────────────── */
+::selection {
+  background: rgba(255, 107, 0, 0.2);
+  color: var(--color-navy);
 }

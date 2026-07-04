@@ -64,7 +64,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-extrabold text-[var(--color-navy)] mb-6 tracking-tight"
+            className="text-4xl md:text-5xl font-extrabold text-[var(--color-navy)] mb-8 tracking-tight leading-[1.1]"
           >
             Enterprise <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-orange)] to-orange-400">Solutions</span>
           </motion.h2>
@@ -73,7 +73,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-gray-600 font-medium"
+            className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed"
           >
             Comprehensive technology consulting and engineering services designed to scale your operations and accelerate digital transformation.
           </motion.p>
@@ -87,7 +87,8 @@ export default function Services() {
                <button 
                   key={cat.id} 
                   onClick={() => handleCategoryChange(cat)}
-                  className={`text-left px-6 py-5 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-300 flex justify-between items-center border ${
+                  aria-pressed={activeCategory.id === cat.id}
+                  className={`text-left px-6 py-5 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-300 flex justify-between items-center border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-orange)] ${
                     activeCategory.id === cat.id 
                       ? "bg-[var(--color-navy)] text-white shadow-[0_10px_30px_-10px_rgba(10,35,66,0.5)] border-transparent scale-[1.02]" 
                       : "bg-white text-gray-600 hover:bg-gray-50 border-gray-100 hover:border-[var(--color-orange)]/50"
@@ -116,9 +117,9 @@ export default function Services() {
                       key={service.id} 
                       whileHover={{ y: -5 }}
                       onClick={() => handleServiceClick(service)}
-                      className={`glass group rounded-2xl p-6 transition-all duration-300 cursor-pointer border relative flex flex-col h-full shadow-sm hover:shadow-xl ${
+                      className={`glass group rounded-2xl p-6 transition-all duration-300 cursor-pointer border relative flex flex-col h-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(255,107,0,0.15)] hover:-translate-y-2 ${
                         isActive 
-                          ? "border-[var(--color-orange)] bg-white/90 shadow-md ring-4 ring-[var(--color-orange)]/10" 
+                          ? "border-[var(--color-orange)] bg-white/90 shadow-lg ring-4 ring-[var(--color-orange)]/10 -translate-y-2" 
                           : "border-white/40 bg-white/40 hover:border-[var(--color-orange)]/30"
                       }`}
                     >
@@ -230,7 +231,8 @@ export default function Services() {
                             <div key={i} className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
                               <button 
                                 onClick={() => setOpenFaqIndex(openFaqIndex === i ? -1 : i)} 
-                                className="w-full px-6 py-5 flex justify-between items-center hover:bg-gray-50 transition-colors focus:outline-none"
+                                aria-expanded={openFaqIndex === i}
+                                className="w-full px-6 py-5 flex justify-between items-center hover:bg-gray-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-orange)] focus-visible:ring-inset"
                               >
                                 <span className="font-bold text-[var(--color-navy)] text-left pr-4">{faq.q}</span>
                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center bg-gray-100 flex-shrink-0 transition-transform duration-300 ${openFaqIndex === i ? "bg-[var(--color-orange)] text-white rotate-180" : "text-gray-500"}`}>
@@ -261,7 +263,7 @@ export default function Services() {
                       <div className="flex justify-center mt-12 pt-8 border-t border-gray-100">
                         <Link 
                           href="#contact" 
-                          className="bg-gradient-to-r from-[var(--color-orange)] to-orange-500 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/30 flex items-center gap-3 group transition-all hover:-translate-y-1"
+                          className="bg-gradient-to-r from-[var(--color-orange)] to-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/30 flex items-center gap-3 group transition-all duration-300 hover:-translate-y-1"
                         >
                           Request a Quote for {activeService.name}
                           <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
