@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
   title: {
-    default: "D Anmol Tech | Enterprise Digital Solutions",
-    template: "%s | D Anmol Tech",
+    default: "D - Anmol Tech Enterprises | Enterprise Digital Solutions",
+    template: "%s | D - Anmol Tech Enterprises",
   },
   description:
-    "D Anmol Tech — Global technology consulting and engineering services. We engineer enterprise-grade digital solutions from AI-driven automation to scalable cloud architectures and custom software development.",
+    "D - Anmol Tech Enterprises — Global technology consulting and engineering services. We engineer enterprise-grade digital solutions from AI-driven automation to scalable cloud architectures and custom software development.",
   keywords: [
     "enterprise software development",
     "AI automation",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "custom software",
     "digital marketing",
     "IT consulting",
-    "D Anmol Tech",
+    "D - Anmol Tech Enterprises",
   ],
   robots: {
     index: true,
@@ -40,17 +40,17 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-snippet": -1 },
   },
   openGraph: {
-    title: "D Anmol Tech | Enterprise Digital Solutions",
+    title: "D - Anmol Tech Enterprises | Enterprise Digital Solutions",
     description:
       "Global technology consulting and engineering services. AI automation, web development, and scalable cloud solutions.",
     url: "/",
-    siteName: "D Anmol Tech",
+    siteName: "D - Anmol Tech Enterprises",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "D Anmol Tech | Enterprise Digital Solutions",
+    title: "D - Anmol Tech Enterprises | Enterprise Digital Solutions",
     description:
       "Global technology consulting — AI, web, mobile, and cloud solutions.",
   },

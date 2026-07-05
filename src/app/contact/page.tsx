@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with D Anmol Tech. Schedule a consultation for custom software development, digital marketing, or enterprise technology solutions.",
+  description: "Get in touch with D - Anmol Tech Enterprises. Schedule a consultation for custom software development, digital marketing, or enterprise technology solutions.",
   alternates: {
     canonical: "/contact",
   },

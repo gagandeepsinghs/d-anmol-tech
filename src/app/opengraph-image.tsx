@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'D Anmol Tech - Enterprise Digital Solutions';
+export const alt = 'D - Anmol Tech Enterprises - Enterprise Digital Solutions';
 export const size = {
   width: 1200,
   height: 630,
@@ -33,7 +33,7 @@ export default async function Image() {
             lineHeight: 1.1,
           }}
         >
-          D Anmol Tech
+          D - Anmol Tech Enterprises
         </h1>
         <p
           style={{

@@ -1,5 +1,5 @@
 /**
- * D Anmol Tech — Shared Design Tokens
+ * D - Anmol Tech Enterprises — Shared Design Tokens
  * Single source of truth for all recurring class patterns.
  * Import from this file instead of repeating strings across components.
  */
@@ -67,7 +67,7 @@ export const FADE_UP = {
   initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 } as const;
 
 /** Stagger container variants */
@@ -85,6 +85,6 @@ export const STAGGER_CHILD = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };

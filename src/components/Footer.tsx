@@ -71,7 +71,7 @@ export default function Footer() {
             <Link
               href="/"
               className="inline-flex items-center gap-3 mb-6"
-              aria-label="D Anmol Tech — Home"
+              aria-label="D - Anmol Tech Enterprises — Home"
             >
               <div className="relative w-12 h-12 flex items-center justify-center bg-white rounded-lg p-1 shrink-0">
                 <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-[var(--color-navy)]" aria-hidden="true">
@@ -160,7 +160,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500">
-            &copy; {currentYear} D Anmol Tech. All rights reserved.
+            &copy; {currentYear} D - Anmol Tech Enterprises. All rights reserved.
           </p>
           <nav aria-label="Legal links" className="flex gap-6 text-xs text-gray-500">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>

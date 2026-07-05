@@ -10,7 +10,7 @@ import BookingModal from "@/components/BookingModal";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/#about" },
-  { name: "Services", href: "/#services" },
+  { name: "Services", href: "/services" },
   { name: "Products", href: "/products" },
   { name: "Case Studies", href: "/portfolio" },
 ];
@@ -42,40 +42,44 @@ export default function Navbar() {
       <nav
         role="navigation"
         aria-label="Main navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm shadow-[var(--color-navy)]/5 py-3"
-            : "bg-transparent py-5"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full"
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 md:gap-3 z-50 shrink-0"
-            aria-label="D Anmol Tech — Home"
-          >
-            <div className="relative w-10 h-10 md:w-16 md:h-16 flex items-center justify-center shrink-0">
-              <span className="absolute inset-0 flex items-center justify-center text-xl md:text-3xl font-bold text-[var(--color-navy)]" aria-hidden="true">
-                D
+        <div 
+          className={`mx-auto flex items-center justify-between transition-all duration-500 ${
+            scrolled 
+              ? "max-w-7xl w-[95%] bg-white/95 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 rounded-full px-4 py-2 mt-4" 
+              : "container px-6 md:px-12 bg-transparent py-5"
+          }`}
+        >
+          {/* Logo (Left) */}
+          <div className="flex-1 flex items-center">
+            <Link
+              href="/"
+              className="flex items-center gap-2 md:gap-2.5 z-50 shrink-0 group"
+              aria-label="D - Anmol Tech Enterprises — Home"
+            >
+              <div className="relative w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shrink-0">
+                <span className="absolute inset-0 flex items-center justify-center text-lg md:text-xl font-bold text-[var(--color-navy)] group-hover:scale-105 transition-transform" aria-hidden="true">
+                  D
+                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.png"
+                  alt=""
+                  className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+              </div>
+              <span className="text-lg md:text-xl font-extrabold text-[var(--color-navy)] tracking-tight whitespace-nowrap">
+                D<span className="text-[var(--color-orange)] mx-1">-</span>ANMOL TECH
               </span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo.png"
-                alt=""
-                className="w-full h-full object-contain relative z-10"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = "none";
-                }}
-              />
-            </div>
-            <span className="text-xl sm:text-2xl md:text-[2rem] font-bold text-[var(--color-navy)] tracking-wide whitespace-nowrap">
-              D<span className="text-[var(--color-orange)] mx-1 md:mx-2">-</span>ANMOL TECH
-            </span>
-          </Link>
+            </Link>
+          </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10">
+          {/* Desktop Nav (Center) */}
+          <div className="hidden lg:flex items-center justify-center gap-1 flex-1">
             {navLinks.map((link) =>
               link.name === "Services" ? (
                 <ServicesMegaMenu key={link.name} />
@@ -83,59 +87,56 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative group text-sm uppercase tracking-wider py-6 font-semibold transition-colors duration-200 ${
+                  className={`relative whitespace-nowrap px-4 py-2 text-[14px] font-semibold tracking-wide rounded-full transition-all duration-300 ${
                     isActive(link.href)
-                      ? "text-[var(--color-orange)]"
-                      : "text-[var(--color-navy)] hover:text-[var(--color-orange)]"
+                      ? "text-[var(--color-navy)] bg-gray-100/80"
+                      : "text-gray-600 hover:text-[var(--color-navy)] hover:bg-gray-50"
                   }`}
                 >
                   {link.name}
-                  <span
-                    className={`absolute bottom-5 left-0 w-full h-[2px] bg-[var(--color-orange)] origin-left transition-transform duration-300 ${
-                      isActive(link.href)
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  />
                 </Link>
               )
             )}
+          </div>
 
+          {/* CTA (Right) */}
+          <div className="hidden lg:flex flex-1 items-center justify-end">
             <button
               onClick={() => setBookingModalOpen(true)}
-              className="bg-[var(--color-navy)] text-white px-7 py-3 rounded-xl hover:bg-[var(--color-orange)] hover:-translate-y-0.5 transition-all duration-300 text-sm font-semibold shadow-md shadow-[var(--color-navy)]/20 hover:shadow-[var(--color-orange)]/20"
+              className="whitespace-nowrap bg-[var(--color-navy)] text-white px-6 py-2.5 rounded-full text-[14px] font-semibold hover:bg-[var(--color-orange)] hover:shadow-lg hover:shadow-[var(--color-orange)]/20 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 group"
             >
               Get a Proposal
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
           </div>
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden text-[var(--color-navy)] z-50 p-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-orange)]"
+            className="lg:hidden text-[var(--color-navy)] z-50 p-2 rounded-lg hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-orange)]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
           >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu — full-screen overlay */}
+        {/* Mobile Menu — Floating dropdown */}
         {mobileMenuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-md shadow-xl border-t border-gray-100 z-40"
+            className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-md shadow-xl border border-gray-100 z-40 mt-2 rounded-2xl mx-4 overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-1">
+            <div className="px-6 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`block py-4 px-2 text-base font-bold transition-colors border-b border-gray-100 last:border-0 ${
+                  className={`block py-3 px-4 text-[15px] font-bold rounded-xl transition-colors ${
                     isActive(link.href)
-                      ? "text-[var(--color-orange)]"
-                      : "text-[var(--color-navy)] hover:text-[var(--color-orange)]"
+                      ? "text-[var(--color-orange)] bg-orange-50/50"
+                      : "text-[var(--color-navy)] hover:text-[var(--color-orange)] hover:bg-gray-50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -147,7 +148,7 @@ export default function Navbar() {
                   setMobileMenuOpen(false);
                   setBookingModalOpen(true);
                 }}
-                className="mt-4 bg-[var(--color-orange)] text-white text-center px-6 py-4 rounded-xl font-bold shadow-lg shadow-orange-500/20 active:scale-95 transition-transform"
+                className="mt-2 w-full bg-[var(--color-orange)] text-white text-center px-6 py-3.5 rounded-xl font-bold shadow-md shadow-[var(--color-orange)]/20 active:scale-95 transition-transform"
               >
                 Get a Proposal
               </button>

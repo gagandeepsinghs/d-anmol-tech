@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn more about D Anmol Tech. We are a global technology consulting and engineering company specializing in enterprise-grade digital solutions.",
+  description: "Learn more about D - Anmol Tech Enterprises. We are a global technology consulting and engineering company specializing in enterprise-grade digital solutions.",
   alternates: {
     canonical: "/about",
   },

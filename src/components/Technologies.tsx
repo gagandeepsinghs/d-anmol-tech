@@ -98,7 +98,7 @@ export default function Technologies() {
 
           <motion.h2
             {...FADE_UP}
-            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-3xl md:text-4xl font-extrabold text-[var(--color-navy)] tracking-tight leading-[1.1]"
           >
             Powered By{" "}
@@ -108,7 +108,7 @@ export default function Technologies() {
 
         <motion.p
           {...FADE_UP}
-          transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
           className="text-sm md:text-base text-gray-600 font-medium max-w-md text-center md:text-right"
         >
           We leverage best-in-class frameworks, AI platforms, and cloud infrastructure to deliver scalable enterprise solutions.

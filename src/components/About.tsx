@@ -95,7 +95,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-gradient-to-r from-[var(--color-orange)]/20 to-transparent text-[var(--color-navy)] font-black text-sm md:text-base uppercase tracking-widest mb-6 border border-[var(--color-orange)]/30 backdrop-blur-sm shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-[var(--color-orange)] animate-pulse shadow-[0_0_8px_rgba(255,107,0,0.8)]"></span>
-              The D Anmol Tech Story
+              The D - Anmol Tech Enterprises Story
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--color-navy)] mb-8 tracking-tight leading-[1.1]">
@@ -123,7 +123,7 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
             className="relative lg:h-[600px] w-full flex items-center justify-center order-2 mt-12 lg:mt-0"
           >
             <div className="relative w-full max-w-[500px] aspect-[4/5] lg:aspect-auto lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(10,35,66,0.3)] border-8 border-white/80 z-10 group">
@@ -142,7 +142,7 @@ export default function About() {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
               className="absolute -bottom-6 left-0 lg:-left-10 glass-dark bg-[var(--color-navy)]/95 backdrop-blur-xl rounded-2xl p-5 shadow-2xl z-30 border border-white/10 w-[300px] md:w-[340px]"
             >
               <div className="grid grid-cols-2 gap-5">

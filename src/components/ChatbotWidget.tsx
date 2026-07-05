@@ -53,7 +53,7 @@ export default function ChatbotWidget() {
         {
           id: Date.now().toString(),
           sender: "bot",
-          text: "Hello! Welcome to D Anmol Tech. How can I help you today? / नमस्ते! D Anmol Tech में आपका स्वागत है।",
+          text: "Hello! Welcome to D - Anmol Tech Enterprises. How can I help you today? / नमस्ते! D - Anmol Tech Enterprises में आपका स्वागत है।",
           options: [
             "Get a Free Quote",
             "WhatsApp an Expert",
@@ -81,8 +81,37 @@ export default function ChatbotWidget() {
     }
 
     // Services
-    if (lowerText.includes("our services") || lowerText.includes("services")) {
-      return "We specialize in:\n- Website Development\n- E-Commerce Development\n- Mobile App Development\n- AI Automation\n- SEO & Digital Marketing\n- Cloud & DevOps\n- Custom Software Development\n\nWhich one are you interested in?";
+    if (lowerText.includes("our services") || lowerText === "services") {
+      return {
+        text: "We specialize in the following areas. Which one are you interested in?",
+        options: [
+          "Website Development",
+          "E-Commerce Development",
+          "Mobile App Development",
+          "AI Automation",
+          "SEO & Digital Marketing",
+          "Cloud & DevOps",
+          "Custom Software"
+        ]
+      };
+    }
+
+    // Specific Service Selected
+    const specificServices = [
+      "website development",
+      "e-commerce development",
+      "mobile app development",
+      "ai automation",
+      "seo & digital marketing",
+      "cloud & devops",
+      "custom software"
+    ];
+
+    if (specificServices.some(service => lowerText === service || lowerText.includes(service))) {
+      return {
+        text: `Great choice! We have extensive experience in that area. Would you like to get a free quote for your project or speak directly with an expert?`,
+        options: ["Get a Free Quote", "WhatsApp an Expert"]
+      };
     }
 
     // Lead Gen Trigger
@@ -125,7 +154,7 @@ export default function ChatbotWidget() {
     }
 
     // Fallback
-    return "I am an AI assistant for D Anmol Tech. I can help you with our services, quotes, or direct you to an expert. Could you please clarify your request?";
+    return "I am an AI assistant for D - Anmol Tech Enterprises. I can help you with our services, quotes, or direct you to an expert. Could you please clarify your request?";
   };
 
   const handleLeadFlow = (text: string) => {
@@ -145,8 +174,21 @@ export default function ChatbotWidget() {
       case 4:
         setLeadData({ ...leadData, company: text });
         setLeadStep(5);
-        return "Which service are you looking for?";
+        return {
+          text: "Which service are you looking for?",
+          options: [
+            "Website Development",
+            "E-Commerce Development",
+            "Mobile App Development",
+            "SEO & Marketing",
+            "AI Automation",
+            "Custom"
+          ]
+        };
       case 5:
+        if (text.toLowerCase() === "custom") {
+          return "Please write down the custom service you are looking for:";
+        }
         setLeadData({ ...leadData, service: text });
         setLeadStep(6);
         return "What is your estimated budget?";
@@ -182,18 +224,27 @@ export default function ChatbotWidget() {
       let link: { url: string; label: string } | undefined = undefined;
 
       if (leadStep > 0) {
-        botResponseText = handleLeadFlow(text);
+        const response = handleLeadFlow(text);
+        if (typeof response === "string") {
+          botResponseText = response;
+        } else {
+          botResponseText = response.text;
+          options = response.options;
+        }
       } else {
         const response = processBotResponse(text);
         if (typeof response === "string") {
           botResponseText = response;
         } else {
           botResponseText = response.text;
-          link = response.link;
+          if (response.link) link = response.link;
+          if (response.options) options = response.options;
         }
         
         if (botResponseText.includes("clarify your request") || botResponseText.includes("quote")) {
-          options = ["Get a Free Quote", "WhatsApp an Expert", "Our Services"];
+          if (!options) {
+            options = ["Get a Free Quote", "WhatsApp an Expert", "Our Services"];
+          }
         }
       }
 
@@ -249,7 +300,7 @@ export default function ChatbotWidget() {
                   <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-[var(--color-navy)]"></div>
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-sm tracking-wide">D Anmol Tech Assistant</h3>
+                  <h3 className="text-white font-bold text-sm tracking-wide">D - Anmol Tech Enterprises Assistant</h3>
                   <p className="text-gray-300 text-xs flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                     Online

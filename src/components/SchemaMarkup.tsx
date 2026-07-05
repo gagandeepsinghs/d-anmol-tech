@@ -2,7 +2,7 @@ export default function SchemaMarkup() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "D Anmol Tech",
+    "name": "D - Anmol Tech Enterprises",
     "url": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/logo.png`, // Assuming logo exists or will exist
     "contactPoint": {
@@ -19,7 +19,7 @@ export default function SchemaMarkup() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "D Anmol Tech",
+    "name": "D - Anmol Tech Enterprises",
     "image": `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/opengraph-image`, 
     "@id": `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}`,
     "url": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",

@@ -111,7 +111,7 @@ export default function Hero() {
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed font-medium">
-              We engineer enterprise-grade digital solutions. From AI-driven automation to scalable cloud architectures, D Anmol Tech transforms complexity into your competitive advantage.
+              We engineer enterprise-grade digital solutions. From AI-driven automation to scalable cloud architectures, D - Anmol Tech Enterprises transforms complexity into your competitive advantage.
             </motion.p>
             
             {/* Mobile/Tablet Image Node */}

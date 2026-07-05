@@ -87,7 +87,7 @@ export default function Products() {
 
           <motion.h2
             {...FADE_UP}
-            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-4xl md:text-5xl font-extrabold text-[var(--color-navy)] mb-8 tracking-tight leading-[1.1]"
           >
             SaaS & Digital <span className={GRADIENT_TEXT}>Products</span>
@@ -95,7 +95,7 @@ export default function Products() {
 
           <motion.p
             {...FADE_UP}
-            transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed"
           >
             Explore our suite of scalable digital platforms engineered to streamline

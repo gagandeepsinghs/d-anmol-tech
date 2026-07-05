@@ -33,7 +33,7 @@ export type ServiceCategory = {
 
 // A generic rich content generator for missing ones to save space, while providing real deep content for SEO
 const generateGenericDetail = (name: string): ServiceDetail => ({
-  overview: `At D Anmol Tech, our ${name} services are designed to propel your enterprise forward in the digital age. We leverage cutting-edge methodologies and industry best practices to deliver robust, scalable, and highly optimized solutions. Whether you are looking to modernize your existing infrastructure or build from the ground up, our expert team ensures that every aspect of your ${name} strategy aligns perfectly with your core business objectives, driving measurable growth and long-term success.`,
+  overview: `At D - Anmol Tech Enterprises, our ${name} services are designed to propel your enterprise forward in the digital age. We leverage cutting-edge methodologies and industry best practices to deliver robust, scalable, and highly optimized solutions. Whether you are looking to modernize your existing infrastructure or build from the ground up, our expert team ensures that every aspect of your ${name} strategy aligns perfectly with your core business objectives, driving measurable growth and long-term success.`,
   features: [
     "Customized Strategy & Planning",
     "Scalable Enterprise Architecture",

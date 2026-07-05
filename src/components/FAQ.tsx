@@ -7,7 +7,7 @@ import { FADE_UP, STAGGER_CONTAINER, STAGGER_CHILD } from "@/lib/design";
 
 const faqData = [
   {
-    question: "WHAT SERVICES DOES D ANMOL TECH OFFER?",
+    question: "WHAT SERVICES DOES D - ANMOL TECH ENTERPRISES OFFER?",
     answer:
       "We provide complete enterprise digital solutions including custom software development, web architecture, mobile app ecosystems, UI/UX design, AI integration, legacy modernization, cloud computing, and managed IT services.",
   },
@@ -114,7 +114,7 @@ export default function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
                     >
                       <p className="px-7 py-6 text-gray-600 text-[16px] leading-relaxed border-t border-gray-100">
                         {faq.answer}

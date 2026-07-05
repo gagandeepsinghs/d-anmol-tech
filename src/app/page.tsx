@@ -2,10 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Technologies from "@/components/Technologies";
 import Industries from "@/components/Industries";
-import ServiceProcess from "@/components/ServiceProcess";
-import Services from "@/components/Services";
-import Products from "@/components/Products";
-import CaseStudies from "@/components/CaseStudies";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -18,10 +14,6 @@ export default function Home() {
       <Hero />
       <Technologies />
       <Industries />
-      <Products />
-      <ServiceProcess />
-      <Services />
-      <CaseStudies />
       <About />
       <FAQ />
       <Contact />

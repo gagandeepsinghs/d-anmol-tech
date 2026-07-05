@@ -70,7 +70,7 @@ export default function Contact() {
 
           <motion.h2
             {...FADE_UP}
-            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-4xl md:text-5xl font-extrabold text-[var(--color-navy)] mb-8 tracking-tight leading-[1.1]"
           >
             Ready to{" "}
@@ -82,10 +82,10 @@ export default function Contact() {
 
           <motion.p
             {...FADE_UP}
-            transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed"
           >
-            Partner with D Anmol Tech to architect the future of your enterprise. Fill
+            Partner with D - Anmol Tech Enterprises to architect the future of your enterprise. Fill
             out the form below and our experts will get back to you within 24 hours.
           </motion.p>
         </div>
@@ -96,7 +96,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="lg:col-span-2"
           >
             <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
@@ -149,7 +149,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="lg:col-span-3"
           >
             <div className="bg-[var(--color-navy)] rounded-2xl p-8 md:p-10 shadow-xl shadow-[var(--color-navy)]/10 relative overflow-hidden">
@@ -242,6 +242,7 @@ export default function Contact() {
                       <select
                         id="services_select"
                         name="service"
+                        defaultValue=""
                         className={`${INPUT_CLASS} appearance-none`}
                       >
                         <option value="" className="text-gray-900 bg-white">Select a service…</option>

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
-  description: "Find answers to commonly asked questions about D Anmol Tech's technology consulting, software development process, and enterprise solutions.",
+  description: "Find answers to commonly asked questions about D - Anmol Tech Enterprises's technology consulting, software development process, and enterprise solutions.",
   alternates: {
     canonical: "/faq",
   },
